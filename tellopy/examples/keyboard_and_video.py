@@ -90,6 +90,14 @@ def toggle_zoom(drone, speed):
     pygame.display.get_surface().fill((0,0,0))
     pygame.display.flip()
 
+def emergency(self):
+    """Stop all four motors instantly"""
+    log.info('emergency')
+    pkt = Packet(EMERGENCY_CMD)
+    pkt.add_byte(0x00)
+    pkt.fixup()
+    return self.send_packet(pkt)
+
 controls = {
     'w': 'forward',
     's': 'backward',
@@ -112,6 +120,7 @@ controls = {
     'z': toggle_zoom,
     'enter': take_picture,
     'return': take_picture,
+    'e': emergency;
 }
 
 class FlightDataDisplay(object):
