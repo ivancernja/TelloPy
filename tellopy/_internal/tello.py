@@ -133,6 +133,14 @@ class Tello(object):
 
         return res
 
+    def emergency(self):
+        """Stop all four motors instantly"""
+        log.info('emergency')
+        pkt = Packet(EMERGENCY_CMD)
+        pkt.add_byte(0x00)
+        pkt.fixup()
+        return self.send_packet(pkt)
+
     def connect(self):
         """Connect is used to send the initial connection request to the drone."""
         self.__publish(event=self.__EVENT_CONN_REQ)

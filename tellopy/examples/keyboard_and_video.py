@@ -16,6 +16,9 @@ Controls:
   (video and photos will be saved to a timestamped file in ~/Pictures/)
 - Z to toggle camera zoom state
   (zoomed-in widescreen or high FOV 4:3)
+- F to flip left
+- G to flip right
+- X for emergency stop
 """
 
 import time
@@ -120,7 +123,9 @@ controls = {
     'z': toggle_zoom,
     'enter': take_picture,
     'return': take_picture,
-    'x': emergency,
+    'x': 'emergency',
+    'f': 'flip_left',
+    'g': 'flip_right',
 }
 
 class FlightDataDisplay(object):
