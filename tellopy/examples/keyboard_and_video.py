@@ -120,7 +120,7 @@ controls = {
     'z': toggle_zoom,
     'enter': take_picture,
     'return': take_picture,
-    'e': emergency,
+    'x': emergency,
 }
 
 class FlightDataDisplay(object):
